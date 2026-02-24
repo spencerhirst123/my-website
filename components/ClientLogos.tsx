@@ -1,8 +1,7 @@
 'use client';
 
 // TODO: Replace placeholder logos with your actual client logos
-// Add your logo image files to /public/logos/ and update the list below
-
+// Add logo files to /public/logos/ and update the array below
 const clients = [
   { name: 'Client One', logo: null },
   { name: 'Client Two', logo: null },
@@ -16,38 +15,38 @@ const clients = [
 
 export default function ClientLogos() {
   return (
-    <section className="py-20 border-y border-white/5" style={{ background: '#0D0D10' }}>
+    <section className="py-20 section-alt" style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Heading */}
         <div className="text-center mb-12">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500 mb-3">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] mb-3" style={{ color: 'var(--text-3)' }}>
             Trusted By Growth-Focused Companies
           </p>
-          <h2 className="text-3xl font-black text-white">Brands That Trust Us</h2>
+          <h2 className="text-3xl font-black" style={{ color: 'var(--text)' }}>Brands That Trust Us</h2>
         </div>
 
-        {/* Logo grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-white/5 rounded-2xl overflow-hidden">
+        <div
+          className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl overflow-hidden"
+          style={{ border: '1px solid var(--border)' }}
+        >
           {clients.map((client, i) => (
             <div
               key={i}
-              className="flex items-center justify-center p-8 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-300 group"
+              className="flex items-center justify-center p-8 transition-colors duration-300 group"
+              style={{ background: 'var(--bg-card)', borderRight: i % 4 !== 3 ? '1px solid var(--border)' : 'none', borderBottom: i < 4 ? '1px solid var(--border)' : 'none' }}
             >
               {client.logo ? (
-                // Replace with: <img src={client.logo} alt={client.name} className="h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0" />
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="h-8 object-contain opacity-60 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
+                  className="h-8 object-contain opacity-50 group-hover:opacity-100 transition-opacity duration-300 grayscale group-hover:grayscale-0"
                 />
               ) : (
-                // Placeholder shown until you add real logos
                 <div className="flex flex-col items-center gap-2">
                   <div
-                    className="w-10 h-10 rounded-xl opacity-30 group-hover:opacity-60 transition-opacity"
-                    style={{ background: 'linear-gradient(135deg, #2563EB, #7C3AED)' }}
+                    className="w-10 h-10 rounded-xl opacity-20 group-hover:opacity-50 transition-opacity"
+                    style={{ background: 'var(--gradient)' }}
                   />
-                  <span className="text-xs text-zinc-600 group-hover:text-zinc-500 transition-colors font-medium">
+                  <span className="text-xs font-medium transition-colors" style={{ color: 'var(--text-3)' }}>
                     {client.name}
                   </span>
                 </div>
@@ -56,8 +55,7 @@ export default function ClientLogos() {
           ))}
         </div>
 
-        {/* Sub-copy */}
-        <p className="text-center text-zinc-600 text-sm mt-8">
+        <p className="text-center text-sm mt-8" style={{ color: 'var(--text-3)' }}>
           And many more companies across SaaS, agencies, consulting, and professional services.
         </p>
       </div>

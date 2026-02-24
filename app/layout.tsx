@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 export const metadata: Metadata = {
   title: 'Accelerate B2B | Cold Email Agency That Books Meetings',
@@ -31,7 +32,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="bg-brand-dark text-white antialiased">{children}</body>
+      <body className="antialiased">
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
     </html>
   );
 }

@@ -14,7 +14,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-brand-dark">
+    <main className="min-h-screen">
       {/* Slim announcement bar */}
       <AnnouncementBar />
 
